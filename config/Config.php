@@ -2,5 +2,6 @@
 define('HOST','localhost');
 define('USER','root');
 define('PASS','');
-define('DBNAME','');
+define('DBNAME','pos_ventas');
+define('CHARSET','');
 ?>

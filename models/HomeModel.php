@@ -1,7 +1,9 @@
 <?php
-class HomeModel{
-    public function getDatos($parametro) {
-        return 'Mensaje desde el modelo: ' . $parametro;
+class HomeModel extends Query{
+    public function __construct() {
+        parent::__construct();
+    }
+    public function getDatos() {
     }
 }
 ?>
