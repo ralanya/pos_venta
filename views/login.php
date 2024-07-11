@@ -44,17 +44,19 @@
 										<hr/>
 									</div>
 									<div class="form-body">
-										<form class="row g-3" id="formulario" method="POST">
+										<form class="row g-3" id="formulario" method="POST" autocomplete="off">
 											<div class="col-12">
 												<label for="correo" class="form-label">Correo Electrónico</label>
 												<input type="email" class="form-control" id="correo" name="correo" placeholder="Correo Electrónico">
+												<span id="errorCorreo" class="text-danger"></span>
 											</div>
 											<div class="col-12">
 												<label for="clave" class="form-label">Contraseña</label>
 												<div class="input-group" id="show_hide_password">
-													<input type="password" class="form-control border-end-0" id="clave" name="clave" value="admin" placeholder="Contraseña"> 
+													<input type="password" class="form-control border-end-0" id="clave" name="clave" placeholder="Contraseña"> 
                                                     <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
 												</div>
+												<span id="errorClave" class="text-danger"></span>
 											</div>
 											
 											<div class="col-md-12 text-end">	<a href="authentication-forgot-password.html">¿Olvidaste tu contraseña?</a>
@@ -101,6 +103,9 @@
 		});
 	</script>
 	<!--app JS-->
+	<script>
+		const base_url = '<?php echo BASE_URL; ?>';
+	</script>
 	<script src="<?php echo BASE_URL; ?>assets/js/app.js"></script>
 	<script src="<?php echo BASE_URL; ?>assets/js/moduls/login.js"></script>
 </body>
