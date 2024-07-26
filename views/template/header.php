@@ -45,14 +45,27 @@
 			<ul class="metismenu" id="menu">
 				<li>
 					<a href="javascript:;">
-						<div class="parent-icon"><i class='bx bx-home-circle'></i>
+						<div class="parent-icon"><i class="fa-solid fa-house-user"></i>
 						</div>
 						<div class="menu-title">Tablero</div>
 					</a>
 				</li>
 				<li>
 					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class="bx bx-category"></i>
+						<div class="parent-icon"><i class="fa-solid fa-screwdriver-wrench"></i>
+						</div>
+						<div class="menu-title">Administración</div>
+					</a>
+					<ul>
+						<li> <a href="<?php echo BASE_URL . 'usuarios'; ?>"><i class="bx bx-right-arrow-alt"></i>Usuarios</a>
+						</li>
+						<li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Configuración</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="fa-solid fa-clipboard-list"></i>
 						</div>
 						<div class="menu-title">Mantenimiento</div>
 					</a>
@@ -67,62 +80,62 @@
 				</li>
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-users"></i>
 						</div>
 						<div class="menu-title">Clientes</div>
 					</a>
 				</li>
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-cart-flatbed-suitcase"></i>
 						</div>
 						<div class="menu-title">Proveedores</div>
 					</a>
 				</li>				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-box-open"></i>
 						</div>
 						<div class="menu-title">Cajas</div>
 					</a>
 				</li>	
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-truck-fast"></i>
 						</div>
 						<div class="menu-title">Compras</div>
 					</a>
 				</li>			
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-cash-register"></i>
 						</div>
 						<div class="menu-title">Ventas</div>
 					</a>
 				</li>
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-credit-card"></i>
 						</div>
 						<div class="menu-title">Administrar Créditos</div>
 					</a>
 				</li>
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-rectangle-list"></i>
 						</div>
 						<div class="menu-title">Cotizaciones</div>
 					</a>
 				</li>
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-people-arrows"></i>
 						</div>
 						<div class="menu-title">Apartados</div>
 					</a>
 				</li>
 				<li>
 					<a href="widgets.html">
-						<div class="parent-icon"><i class='bx bx-cookie'></i>
+						<div class="parent-icon"><i class="fa-solid fa-file-lines"></i>
 						</div>
 						<div class="menu-title">Inventario & Kardex</div>
 					</a>

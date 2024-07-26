@@ -8,7 +8,7 @@
 		<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 		<!--End Back To Top Button-->
 		<footer class="page-footer">
-			<p class="mb-0">Copyright © 2021. All right reserved.</p>
+			<p class="mb-0">Copyright © <?php echo date('Y'); ?>. All right reserved.</p>
 		</footer>
 	</div>
 	<!--end wrapper-->
@@ -120,6 +120,12 @@
 	<script src="<?php echo BASE_URL; ?>assets/js/index.js"></script>
 	<!--app JS-->
 	<script src="<?php echo BASE_URL; ?>assets/js/app.js"></script>
+	<script src="<?php echo BASE_URL; ?>assets/js/all.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>assets/DataTables/datatables.min.js"></script>
+	<script>
+		const base_url = '<?php echo BASE_URL; ?>';
+	</script>
+	<script src="<?php echo BASE_URL; ?>assets/js/moduls/usuarios.js"></script>
 </body>
 
 </html>
