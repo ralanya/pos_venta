@@ -7,6 +7,7 @@ class Admin extends Controller{
     public function index(){
         // print_r($_SESSION);
         $data['title'] = 'Panel Administrativo';
+        $data['script'] = 'index.js';
         $this->views->getView('admin','home',$data);
     }   
     

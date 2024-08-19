@@ -10,6 +10,7 @@ class Usuarios extends Controller
     {
         // print_r($_SESSION);
         $data['title'] = 'Usuarios';
+        $data['script'] = 'usuarios.js';
         $this->views->getView('usuarios', 'index', $data);
     }
     public function listar()
