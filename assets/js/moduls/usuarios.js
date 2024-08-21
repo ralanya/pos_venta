@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
             { data: 'direccion' },
             { data: 'rol' },
             { data: 'acciones' }
-        ]
+        ],
+        language: {
+            url: base_url + 'assets/js/espanol.json'
+        },
+        dom,
+        buttons
     } );
 })
