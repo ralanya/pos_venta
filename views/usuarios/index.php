@@ -32,64 +32,73 @@
                 </table>
             </div>
             <div class="tab-pane fade mt-2" id="nuevo" role="tabpanel" aria-labelledby="nuevo-tab">
-                <div class="row p-5">
-                    <div class="col-lg-4 col-sm-6">
-                        <label>Nombres</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="fas fa-list"></i></span>
-                            <input type="text" class="form-control" placeholder="Nombres">
+                <form class="p-4" id="formulario" autocomplete="off">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Nombres</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-list"></i></span>
+                                <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Nombres">
+                            </div>
+                            <span id="errorNombre" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Apellidos</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-list-alt"></i></span>
+                                <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos">
+                            </div>
+                            <span id="errorApellido" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Correo</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo Electrónico">
+                            </div>
+                            <span id="errorCorreo" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Teléfono</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="number" id="telefono" name="telefono" class="form-control" placeholder="Teléfono">
+                            </div>
+                            <span id="errorTelefono" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-8 col-sm-6 mb-2">
+                            <label>Dirección</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-home"></i></span>
+                                <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección">
+                            </div>
+                            <span id="errorDireccion" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Clave</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" id="clave" name="clave" class="form-control" placeholder="Contraseña">
+                            </div>
+                            <span id="errorClave" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 mb-2">
+                            <label>Rol</label>
+                            <div class="input-group">
+                                <label class="input-group-text" for="rol"><i class="fas fa-id-card"></i></label>
+                                <select class="form-select" id="rol" name="rol">
+                                    <option selected>Seleccionar...</option>
+                                    <option value="1">ADMINISTRADOR</option>
+                                    <option value="2">VENDEDOR</option>
+                                </select>
+                            </div>
+                            <span id="errorRol" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <label>Apellidos</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="fas fa-list-alt"></i></span>
-                            <input type="text" class="form-control" placeholder="Apellidos">
-                        </div>
+                    <div class="text-end">
+                        <button class="btn btn-primary" type="submit" id="btnAccion">Registrar</button>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <label>Correo</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            <input type="email" class="form-control" placeholder="Correo Electrónico">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <label>Teléfono</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                            <input type="number" class="form-control" placeholder="Teléfono">
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-sm-6">
-                        <label>Dirección</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="fas fa-home"></i></span>
-                            <input type="text" class="form-control" placeholder="Dirección">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <label>Clave</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"><i class="fas fa-lock"></i>Clave</span>
-                            <input type="password" class="form-control" placeholder="Contraseña">
-                        </div>
-                    </div>                    
-                    <div class="col-lg-4 col-sm-6">
-                        <label>Rol</label>
-                        <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-id-card"></i></label>
-                            <select class="form-select" id="inputGroupSelect01">
-                                <option selected>Seleccionar...</option>
-                                <option value="1">ADMINISTRADOR</option>
-                                <option value="2">VENDEDOR</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-end">
-                    <button class="btn btn-primary" type="button">Registrar</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
