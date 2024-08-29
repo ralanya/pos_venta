@@ -19,7 +19,7 @@ const errorRol = document.querySelector("#errorRol");
 
 document.addEventListener('DOMContentLoaded', function () {
     // cargar datos con el plugin DataTable
-    $('#tblUsuarios').DataTable( {
+    $('#tblUsuarios').DataTable({
         ajax: {
             url: base_url + 'usuarios/listar',
             dataSrc: ''
@@ -37,13 +37,57 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         dom,
         buttons
-    } );
+    });
     // registrar usuarios
-    formulario.addEventListener('submit', function(e){
+    formulario.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        errorNombre.textContent = '';
+        errorApellido.textContent = '';
+        errorCorreo.textContent = '';
+        errorTelefono.textContent = '';
+        errorDireccion.textContent = '';
+        errorClave.textContent = '';
+        errorRol.textContent = '';
+
         if (nombres.value == '') {
             errorNombre.textContent = 'EL NOMBRE ES REQUERIDO';
-            
+        }
+        else if (apellidos.value == '') {
+            errorApellido.textContent = 'EL APELLIDO ES REQUERIDO';
+        }
+        else if (correo.value == '') {
+            errorCorreo.textContent = 'EL CORREO ES REQUERIDO';
+        }
+        else if (telefono.value == '') {
+            errorTelefono.textContent = 'EL TELEFONO ES REQUERIDO';
+        }
+        else if (direccion.value == '') {
+            errorDireccion.textContent = 'LA DIRECCION ES REQUERIDO';
+        }
+        else if (clave.value == '') {
+            errorClave.textContent = 'LA CLAVE ES REQUERIDO';
+        }
+        else if (rol.value == '') {
+            errorRol.textContent = 'EL ROL ES REQUERIDO';
+        }
+        else {
+            const url = base_url + 'usuarios/registrar';
+            // crear formData
+            const data = new FormData(this);
+            // hacer una instancia del objeto XMLHttpRequest
+            const http = new XMLHttpRequest();
+            // abrir una conexion POST GET
+            http.open('POST', url, true);
+            // enviar datos
+            http.send(data);
+            // verificar estados
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // const res = JSON.parse(this.responseText);    
+                    console.log(this.responseText);
+                }
+            }
         }
     });
 })

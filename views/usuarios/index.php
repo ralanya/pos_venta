@@ -87,7 +87,7 @@
                             <div class="input-group">
                                 <label class="input-group-text" for="rol"><i class="fas fa-id-card"></i></label>
                                 <select class="form-select" id="rol" name="rol">
-                                    <option selected>Seleccionar...</option>
+                                    <option value="" selected>Seleccionar...</option>
                                     <option value="1">ADMINISTRADOR</option>
                                     <option value="2">VENDEDOR</option>
                                 </select>
