@@ -19,7 +19,7 @@ class Usuarios extends Controller
         for ($i = 0; $i < count($data); $i++) {
             if ($data[$i]['rol'] == 1) {
                 $data[$i]['rol'] = '<span class="badge bg-success">ADMINISTRADOR</span>';
-            }else{
+            } else {
                 $data[$i]['rol'] = '<span class="badge bg-info">VENDEDOR</span>';
             }
             $data[$i]['acciones'] = '';
@@ -28,29 +28,42 @@ class Usuarios extends Controller
         die();
     }
     // metodo para registrar
-    public function registrar() 
+    public function registrar()
     {
-        if(isset($_POST)){
+        if (isset($_POST)) {
             // print_r($_POST); exit;
-            if(empty($_POST['nombres'])){
+            if (empty($_POST['nombres'])) {
                 $res = array('msg' => 'EL NOMBRE ES REQUERIDO', 'type' => 'warning');
-            }else if(empty($_POST['apellidos'])){
+            } else if (empty($_POST['apellidos'])) {
                 $res = array('msg' => 'EL APELLIDO ES REQUERIDO', 'type' => 'warning');
-            }else if(empty($_POST['correo'])){
+            } else if (empty($_POST['correo'])) {
                 $res = array('msg' => 'EL CORREO ES REQUERIDO', 'type' => 'warning');
-            }else if(empty($_POST['telefono'])){
+            } else if (empty($_POST['telefono'])) {
                 $res = array('msg' => 'EL TELÉFONO ES REQUERIDO', 'type' => 'warning');
-            }else if(empty($_POST['direccion'])){
+            } else if (empty($_POST['direccion'])) {
                 $res = array('msg' => 'LA DIRECCIÓN ES REQUERIDO', 'type' => 'warning');
-            }else if(empty($_POST['clave'])){
+            } else if (empty($_POST['clave'])) {
                 $res = array('msg' => 'LA CLAVE ES REQUERIDO', 'type' => 'warning');
-            }else if(empty($_POST['rol'])){
+            } else if (empty($_POST['rol'])) {
                 $res = array('msg' => 'EL ROL ES REQUERIDO', 'type' => 'warning');
-            }else{
-
+            } else {
+                $nombres = strClean($_POST['nombres']);
+                $apellidos = strClean($_POST['apellidos']);
+                $correo = strClean($_POST['correo']);
+                $telefono = strClean($_POST['telefono']);
+                $direccion = strClean($_POST['direccion']);
+                $clave = strClean($_POST['clave']);
+                $hash = password_hash($clave,PASSWORD_DEFAULT);
+                $rol = strClean($_POST['rol']);
+                $data = $this->model->registrar($nombres, $apellidos, $correo, $telefono, $direccion, $hash, $rol);
+                if ($data > 0) {
+                    $res = array('msg' => 'USUARIO REGISTRADO', 'type' => 'success');
+                }else{
+                    $res = array('msg' => 'ERROR AL REGISTRAR', 'type' => 'error');
+                }
             }
-        }else{
-            $res = array('msg' => 'ERROR DESCONOCIDO', 'type' => 'error');    
+        } else {
+            $res = array('msg' => 'ERROR DESCONOCIDO', 'type' => 'error');
         }
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
         die();
