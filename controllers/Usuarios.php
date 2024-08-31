@@ -53,13 +53,24 @@ class Usuarios extends Controller
                 $telefono = strClean($_POST['telefono']);
                 $direccion = strClean($_POST['direccion']);
                 $clave = strClean($_POST['clave']);
-                $hash = password_hash($clave,PASSWORD_DEFAULT);
+                $hash = password_hash($clave, PASSWORD_DEFAULT);
                 $rol = strClean($_POST['rol']);
-                $data = $this->model->registrar($nombres, $apellidos, $correo, $telefono, $direccion, $hash, $rol);
-                if ($data > 0) {
-                    $res = array('msg' => 'USUARIO REGISTRADO', 'type' => 'success');
-                }else{
-                    $res = array('msg' => 'ERROR AL REGISTRAR', 'type' => 'error');
+                // verificar si existe los datos
+                $verificarCorreo = $this->model->getValidar('correo', $correo);
+                if (empty($verificarCorreo)) {
+                    $verificarTel = $this->model->getValidar('telefono', $telefono);
+                    if (empty($verificarTel)) {
+                        $data = $this->model->registrar($nombres, $apellidos, $correo, $telefono, $direccion, $hash, $rol);
+                        if ($data > 0) {
+                            $res = array('msg' => 'USUARIO REGISTRADO', 'type' => 'success');
+                        } else {
+                            $res = array('msg' => 'ERROR AL REGISTRAR', 'type' => 'error');
+                        }
+                    } else {
+                        $res = array('msg' => 'EL TELÉFONO DEBE SER ÚNICO', 'type' => 'warning');
+                    }
+                } else {
+                    $res = array('msg' => 'EL CORREO DEBE SER ÚNICO', 'type' => 'warning');
                 }
             }
         } else {

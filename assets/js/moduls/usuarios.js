@@ -19,7 +19,7 @@ const errorRol = document.querySelector("#errorRol");
 
 document.addEventListener('DOMContentLoaded', function () {
     // cargar datos con el plugin DataTable
-    $('#tblUsuarios').DataTable({
+    tblUsuarios = $('#tblUsuarios').DataTable({
         ajax: {
             url: base_url + 'usuarios/listar',
             dataSrc: ''
@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
             url: base_url + 'assets/js/espanol.json'
         },
         dom,
-        buttons
+        buttons,
+        responsive: true,
+        order: [[0, 'asc']]
     });
     // registrar usuarios
     formulario.addEventListener('submit', function (e) {
@@ -84,8 +86,20 @@ document.addEventListener('DOMContentLoaded', function () {
             // verificar estados
             http.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    // const res = JSON.parse(this.responseText);    
-                    console.log(this.responseText);
+                    const res = JSON.parse(this.responseText);
+                    // console.log(this.responseText);
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-right',
+                        icon: res.type,
+                        title: res.msg,
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
+                    if(res.type == 'success'){
+                        formulario.reset();
+                        tblUsuarios.ajax.reload();
+                    }
                 }
             }
         }

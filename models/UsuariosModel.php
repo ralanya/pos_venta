@@ -17,7 +17,7 @@ class UsuariosModel extends Query
         return $this->insertar($sql, $array);
     }
     public function getValidar($campo, $valor) {
-        $sql = "SELECT * FROM usuarios WHERE $campo = $valor";
+        $sql = "SELECT * FROM usuarios WHERE $campo = '$valor'";
         return $this->select($sql);
     }
 }
