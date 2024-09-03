@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         showConfirmButton: false,
                         timer: 2000,
                     });
-                    if(res.type == 'success'){
+                    if (res.type == 'success') {
                         formulario.reset();
                         tblUsuarios.ajax.reload();
                     }
@@ -105,3 +105,44 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 })
+
+//funcion para eliminar usuario
+function eliminarUsuario(idUsuario) {
+    Swal.fire({
+        title: "¿Estás seguro de eliminar?",
+        text: "El registro no se eliminara de forma permanente, solo cambiara el estado",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, Eliminar!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const url = base_url + 'usuarios/eliminar/' + idUsuario;
+            // hacer una instancia del objeto XMLHttpRequest
+            const http = new XMLHttpRequest();
+            // abrir una conexion POST GET
+            http.open('GET', url, true);
+            // enviar datos
+            http.send();
+            // verificar estados
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const res = JSON.parse(this.responseText);
+                    // console.log(this.responseText);
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-right',
+                        icon: res.type,
+                        title: res.msg,
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
+                    if (res.type == 'success') {
+                        tblUsuarios.ajax.reload();
+                    }
+                }
+            }
+        }
+    });
+}

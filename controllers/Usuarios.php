@@ -22,7 +22,9 @@ class Usuarios extends Controller
             } else {
                 $data[$i]['rol'] = '<span class="badge bg-info">VENDEDOR</span>';
             }
-            $data[$i]['acciones'] = '';
+            $data[$i]['acciones'] = '<div>
+            <button class="btn btn-danger" type="button" onclick="eliminarUsuario('.$data[$i]['id'].')"><i class="fas fa-times-circle"></i></button>                
+            </div>';
         }
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
@@ -79,4 +81,23 @@ class Usuarios extends Controller
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
         die();
     }
+    // metodo para eliminar
+    public function eliminar($id) {
+        if(isset($_GET)){
+            if(is_numeric($id)){
+                $data = $this->model->eliminar(0,$id);
+                if ($data == 1) {
+                    $res = array('msg' => 'USUARIO DADO DE BAJA', 'type' => 'success');
+                } else {
+                    $res = array('msg' => 'ERROR AL ELIMINAR', 'type' => 'error');
+                }                
+            }else{
+                $res = array('msg' => 'ERROR DESCONOCIDO', 'type' => 'error');
+            }
+        }else{
+            $res = array('msg' => 'ERROR DESCONOCIDO', 'type' => 'error');
+        }
+        echo json_encode($res, JSON_UNESCAPED_UNICODE);
+        die();
+    }  
 }
